@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="img/calculadora.ico">
+    <title>Calc. I.Renta</title>
+</head>
+<body style="background-color: gray; color: white;">
+    <h1>Calculadora IR</h1>
+
+    <div class="ingresos">
+        <h2>Ingresos</h2>
+        <hr class="lineaColor">
+        <form action="#"  method="post" id="IR">
+            Sueldo Laboral: $ <input type="text" id="sueldoM" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            <button class="btn" type="submit">Sueldo Anual</button>
+            Total de ingresos: $ <span id="totalIngresos">00.00</span>
+        </form>
+    </div>  
+
+    <div class="gastos">
+        <h2>Gastos y Costos Deducibles</h2>
+        <hr class="lineaColor">
+        <form action="#"  method="post" id="GD">
+            Vivienda: $ <input type="text" id="vivienda" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            Educacion: $ <input type="text" id="educacion" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            Alimentacion: $ <input type="text" id="alimentacion" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            Vestimenta: $ <input type="text" id="vestimenta" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            Turismo Interno: $ <input type="text" id="turismoI" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            Salud: $ <input type="text" id="salud" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
+            <button class="btn" type="submit">Calcular Gastos</button>
+            Total de Gastos y Costos: $ <span id="totalGastos">00.00</span>
+        </form>
+    </div>
+
+    <div class="baseImponible">
+        <h2>Base Imponible</h2>
+        <hr class="lineaColor">
+        Base (2021): $ <span id="base">00.00</span>
+    </div>
+
+    <div class="impuestoFinal">
+        <h2>Impuesto a pagar</h2>
+        <hr class="lineaColor">
+        <form action="#"  method="post" id="FIR">
+            <button class="btn" type="submit">Calcular IR</button>
+            $ <span id="impuestoR">00.00</span>
+        </form>
+    </div>
+
+    <hr>
+    <script src="app.js"></script>
+</body>
+</html>

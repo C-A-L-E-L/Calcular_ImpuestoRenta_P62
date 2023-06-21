@@ -1,0 +1,8 @@
+.lineaColor {
+    width: 50%;
+    border-color: red;
+}
+
+input {
+    border-radius: 8px;
+}
