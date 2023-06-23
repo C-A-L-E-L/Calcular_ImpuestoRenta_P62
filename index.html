@@ -1,56 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="img/calculadora.ico">
-    <title>Calc. I.Renta</title>
+    <title>Calculadora IR</title>
 </head>
-<body style="background-color: gray; color: white;">
-    <h1>Calculadora IR</h1>
+
+<body>
+    <div class="sri">
+        <img class="bandera" src="img/ecuador.jpg" alt="ecuador">
+        <img class="sir" src="img/sir.png" alt="ecuador">
+    </div>
+
+    <h1 class="insetshadow">Impuesto a la Renta</h1>
 
     <div class="ingresos">
-        <h2>Ingresos</h2>
-        <hr class="lineaColor">
-        <form action="#"  method="post" id="IR">
-            Sueldo Laboral: $ <input type="text" id="sueldoM" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            <button class="btn" type="submit">Sueldo Anual</button>
-            Total de ingresos: $ <span id="totalIngresos">00.00</span>
-        </form>
-    </div>  
+        <table class="gastos">
+            <tr>
+                <th  style="border-right: 1px solid white; border-bottom: 1px solid white;"><h2>Ingresos</h2></th>
+                <th colspan="3" style="border-bottom: 1px solid white;"><h2>Gastos y Costos Deducibles</h2></th>
+                
+            </tr>
 
-    <div class="gastos">
-        <h2>Gastos y Costos Deducibles</h2>
-        <hr class="lineaColor">
-        <form action="#"  method="post" id="GD">
-            Vivienda: $ <input type="text" id="vivienda" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            Educacion: $ <input type="text" id="educacion" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            Alimentacion: $ <input type="text" id="alimentacion" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            Vestimenta: $ <input type="text" id="vestimenta" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            Turismo Interno: $ <input type="text" id="turismoI" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            Salud: $ <input type="text" id="salud" placeholder="00,00" pattern="[0-9]+([,][0-9]+)?" id="decimalInput">
-            <button class="btn" type="submit">Calcular Gastos</button>
-            Total de Gastos y Costos: $ <span id="totalGastos">00.00</span>
-        </form>
+            <tr>
+                <td style="border-right: 1px solid white; border-bottom: 1px solid white">
+                    <div class="inputBox">
+                        <input required="" type="text" id="sueldoM" >
+                        <span>Sueldo Laboral</span>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="inputBox">
+                        <input required="" type="text" id="vivienda" >
+                        <span>Vivienda</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputBox">
+                        <input required="" type="text" id="educacion" >
+                        <span>Educacion</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="total">
+                        <p>Total G/C: $ </p>
+                        <span class="resultados" id="totalGastos">00.00</span>
+                    </div>
+                </td>                
+            </tr>
+
+            <tr>
+                <td style="border-right: 1px solid white;"">
+                    <div class="total">
+                        <p>Ingreso Anual: $</p>
+                        <span class="resultados" id="totalIngresos">00.00</span>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="inputBox">
+                        <input required="" type="text" id="alimentacion">
+                        <span>Alimentacion</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputBox">
+                        <input required="" type="text" id="vestimenta">
+                        <span>Vestimenta</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-right: 1px solid white;">
+                    <div class="total">
+                        <p>Base Imponible: $ </p>
+                        <span class="resultados" id="base">00.00</span>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="inputBox">
+                        <input required="" type="text" id="turismoI">
+                        <span>Turismo Interno</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="inputBox">
+                        <input required="" type="text" id="salud">
+                        <span>Salud</span>
+                    </div>
+                </td>
+
+                <td>
+                    <form action="post" id="FIR">
+                        <button type="submit" class="continue-application" >
+                            <div>
+                                <div class="pencil"></div>
+                                <div class="folder">
+                                    <div class="top">
+                                        <svg viewBox="0 0 24 27">
+                                            <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,
+                                            0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,
+                                            9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,
+                                            12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,
+                                            27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,
+                                            1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="paper"></div>
+                                </div>
+                            </div>
+                            Calcular Impuesto
+                        </button>
+                    </form>
+                </td>
+            </tr>
+
+            <tr style=" border: 1px solid white;">
+                <td></td>
+                <th colspan="2"><h2>Impuesto a Pagar:</h2></th>
+                <td>
+                    <div class="total">
+                        <p style="font-size: 45px;">$</p>
+                        <span class="resultadoImpuesto" id="impuestoR">00.00</span>
+                    </div>
+                </td>
+                
+            </tr>
+        </table>
     </div>
-
-    <div class="baseImponible">
-        <h2>Base Imponible</h2>
-        <hr class="lineaColor">
-        Base (2021): $ <span id="base">00.00</span>
-    </div>
-
-    <div class="impuestoFinal">
-        <h2>Impuesto a pagar</h2>
-        <hr class="lineaColor">
-        <form action="#"  method="post" id="FIR">
-            <button class="btn" type="submit">Calcular IR</button>
-            $ <span id="impuestoR">00.00</span>
-        </form>
-    </div>
-
-    <hr>
     <script src="app.js"></script>
 </body>
+<!-- input (onfocus="showExampleText(this)") -->
 </html>
