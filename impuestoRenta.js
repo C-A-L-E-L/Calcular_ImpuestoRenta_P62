@@ -8,7 +8,7 @@
  * 2. Agregar . separador
  * 3. Actualizar input
  */
-function setPuntoMil(input,nameInput) {
+function setPuntoMil(input, nameInput) {
     var number = input.replace(/\./g, '');
     var formattedNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     document.getElementById(nameInput).value = formattedNumber;
@@ -19,9 +19,9 @@ function setPuntoMil(input,nameInput) {
  * @param {string} span - El ID del elemento span en el documento HTML.
  * @param {number} total - El valor numérico que se mostrará en el elemento span.
  */
-function setSpan(span,total) {
+function setSpan(span, total) {
     var nesSpan = document.getElementById(span);
-    nesSpan.textContent = total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    nesSpan.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 /**
@@ -39,15 +39,15 @@ function setSpan(span,total) {
  * 5. Actualizar el elemento span con el salario anual
  */
 function obtenerSalario(input) {
-    var numeroDecimal = parseFloat(input.replace(",","."));
-    console.log(numeroDecimal.toLocaleString(undefined, {maximumFractionDigits: 2}));
+    var numeroDecimal = parseFloat(input.replace(",", "."));
+    console.log(numeroDecimal.toLocaleString(undefined, { maximumFractionDigits: 2 }));
 
-    setPuntoMil(input,'sueldoM');
+    setPuntoMil(input, 'sueldoM');
 
-    var sueldoA = numeroDecimal*12;
-    console.log("anual: "+sueldoA);
+    var sueldoA = numeroDecimal * 12;
+    console.log("anual: " + sueldoA);
 
-    setSpan("totalIngresos",sueldoA);
+    setSpan("totalIngresos", sueldoA);
 }
 
 /**
@@ -69,20 +69,20 @@ function obtenerSalario(input) {
  * 4. Calcular total de gastos
  * 5. Actualizar el elemento span con el gasto total
  */
-function obtenerGastosDeducibles(vi,edu,ali,ves,tu,sa){
-    var vivienda = parseFloat(vi.replace(",","."));
-    var educaion = parseFloat(edu.replace(",","."));
-    var alimentacion = parseFloat(ali.replace(",","."));
-    var vestimenta = parseFloat(ves.replace(",","."));
-    var turismo = parseFloat(tu.replace(",","."));
-    var salud = parseFloat(sa.replace(",","."));
+function obtenerGastosDeducibles(vi, edu, ali, ves, tu, sa) {
+    var vivienda = parseFloat(vi.replace(",", "."));
+    var educaion = parseFloat(edu.replace(",", "."));
+    var alimentacion = parseFloat(ali.replace(",", "."));
+    var vestimenta = parseFloat(ves.replace(",", "."));
+    var turismo = parseFloat(tu.replace(",", "."));
+    var salud = parseFloat(sa.replace(",", "."));
 
-    console.log(vivienda.toLocaleString(undefined, {maximumFractionDigits: 2}));
-    console.log(educaion.toLocaleString(undefined, {maximumFractionDigits: 2}));
-    console.log(alimentacion.toLocaleString(undefined, {maximumFractionDigits: 2}));
-    console.log(vestimenta.toLocaleString(undefined, {maximumFractionDigits: 2}));
-    console.log(turismo.toLocaleString(undefined, {maximumFractionDigits: 2}));
-    console.log(salud.toLocaleString(undefined, {maximumFractionDigits: 2}));
+    console.log(vivienda.toLocaleString(undefined, { maximumFractionDigits: 2 }));
+    console.log(educaion.toLocaleString(undefined, { maximumFractionDigits: 2 }));
+    console.log(alimentacion.toLocaleString(undefined, { maximumFractionDigits: 2 }));
+    console.log(vestimenta.toLocaleString(undefined, { maximumFractionDigits: 2 }));
+    console.log(turismo.toLocaleString(undefined, { maximumFractionDigits: 2 }));
+    console.log(salud.toLocaleString(undefined, { maximumFractionDigits: 2 }));
 
     setPuntoMil(vi, 'vivienda');
     setPuntoMil(edu, 'educacion');
@@ -91,13 +91,13 @@ function obtenerGastosDeducibles(vi,edu,ali,ves,tu,sa){
     setPuntoMil(tu, 'turismoI');
     setPuntoMil(sa, 'salud');
 
-    var gastos = vivienda+educaion+alimentacion+vestimenta+turismo+salud;
-    console.log("GastosDedu: "+gastos);
+    var gastos = vivienda + educaion + alimentacion + vestimenta + turismo + salud;
+    console.log("GastosDedu: " + gastos);
 
-    setSpan("totalGastos",gastos);
-   
+    setSpan("totalGastos", gastos);
+
     return totalGastos;
-} 
+}
 
 /**
  * Obtiene el valor de un elemento HTML.
@@ -116,93 +116,93 @@ function obtenervalor(input) {
  */
 function calcularImpuesto() {
     // Obtener el valor del ingreso anual 
-    var numeroI=0;
+    var numeroI = 0;
     numeroI = obtenervalor("totalIngresos");
 
     // Obtener el valor de gastos y costos
-    var numeroG=0;
+    var numeroG = 0;
     numeroG = obtenervalor("totalGastos");
 
     // Calcular la base imponible (Ingresos - Gastos Deducibles)
-    var baseImponible=0;
-    baseImponible = numeroI-numeroG
-    console.log("BASE: "+baseImponible)
-    
+    var baseImponible = 0;
+    baseImponible = numeroI - numeroG
+    console.log("BASE: " + baseImponible)
+
     // Setear span
-    setSpan("base",baseImponible);
+    setSpan("base", baseImponible);
 
     // "Tabla de Impuestos"
-    var array0=[0,11212,14285,17854,21442,42874,64297,85729,114288];
-    var array=[11212,14285,17854,21442,42874,64297,85729,114288];
-    var array2=[0,0,154,511,941,4156,8440,13798,22366];
+    var array0 = [0, 11212, 14285, 17854, 21442, 42874, 64297, 85729, 114288];
+    var array = [11212, 14285, 17854, 21442, 42874, 64297, 85729, 114288];
+    var array2 = [0, 0, 154, 511, 941, 4156, 8440, 13798, 22366];
 
-    var FB=0;
-    var impuestoFB=0;
-    var porcentajeFE=0;
+    var FB = 0;
+    var impuestoFB = 0;
+    var porcentajeFE = 0;
 
     if (0 < baseImponible && baseImponible < array[0]) {
-        FB=array0[0]
-        impuestoFB=array2[0]
-        porcentajeFE=0
-        console.log("llegue01: "+FB+" "+impuestoFB+" "+porcentajeFE)
+        FB = array0[0]
+        impuestoFB = array2[0]
+        porcentajeFE = 0
+        console.log("llegue01: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[0] < baseImponible && baseImponible < array[1]) {
-        FB=array0[1]
-        impuestoFB=array2[1]
-        porcentajeFE=5
-        console.log("llegue02: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[0] < baseImponible && baseImponible < array[1]) {
+        FB = array0[1]
+        impuestoFB = array2[1]
+        porcentajeFE = 5
+        console.log("llegue02: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[1] < baseImponible && baseImponible < array[2]) {
-        FB=array0[2]
-        impuestoFB=array2[2]
-        porcentajeFE=10
-        console.log("llegue03: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[1] < baseImponible && baseImponible < array[2]) {
+        FB = array0[2]
+        impuestoFB = array2[2]
+        porcentajeFE = 10
+        console.log("llegue03: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[2] < baseImponible && baseImponible < array[3]) {
-        FB=array0[3]
-        impuestoFB=array2[3]
-        porcentajeFE=12
-        console.log("llegue04: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[2] < baseImponible && baseImponible < array[3]) {
+        FB = array0[3]
+        impuestoFB = array2[3]
+        porcentajeFE = 12
+        console.log("llegue04: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[3] < baseImponible && baseImponible < array[4]) {
-        FB=array0[4]
-        impuestoFB=array2[4]
-        porcentajeFE=15
-        console.log("llegue05: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[3] < baseImponible && baseImponible < array[4]) {
+        FB = array0[4]
+        impuestoFB = array2[4]
+        porcentajeFE = 15
+        console.log("llegue05: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[4] < baseImponible && baseImponible < array[5]) {
-        FB=array0[5]
-        impuestoFB=array2[5]
-        porcentajeFE=20
-        console.log("llegue06: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[4] < baseImponible && baseImponible < array[5]) {
+        FB = array0[5]
+        impuestoFB = array2[5]
+        porcentajeFE = 20
+        console.log("llegue06: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[5] < baseImponible && baseImponible < array[6]) {
-        FB=array0[6]
-        impuestoFB=array2[6]
-        porcentajeFE=25
-        console.log("llegue07: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[5] < baseImponible && baseImponible < array[6]) {
+        FB = array0[6]
+        impuestoFB = array2[6]
+        porcentajeFE = 25
+        console.log("llegue07: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
-    }else if (array[6] < baseImponible && baseImponible < array[7]) {
-        FB=array0[7]
-        impuestoFB=array2[7]
-        porcentajeFE=30
+    } else if (array[6] < baseImponible && baseImponible < array[7]) {
+        FB = array0[7]
+        impuestoFB = array2[7]
+        porcentajeFE = 30
 
-    }else if (array[7] < baseImponible) {
-        FB=array0[8]
-        impuestoFB=array2[8]
-        porcentajeFE=35
-        console.log("llegue08: "+FB+" "+impuestoFB+" "+porcentajeFE)
+    } else if (array[7] < baseImponible) {
+        FB = array0[8]
+        impuestoFB = array2[8]
+        porcentajeFE = 35
+        console.log("llegue08: " + FB + " " + impuestoFB + " " + porcentajeFE)
 
     }
 
-    var impuestoFE=0;
-    var impuestoFE=baseImponible-FB;
+    var impuestoFE = 0;
+    var impuestoFE = baseImponible - FB;
 
-    var impuestoTotal=0.0;
-    var impuestoTotal=impuestoFB+((impuestoFE*porcentajeFE)/100);
-    console.log("ImpuestoFinal: "+impuestoTotal)
+    var impuestoTotal = 0.0;
+    var impuestoTotal = impuestoFB + ((impuestoFE * porcentajeFE) / 100);
+    console.log("ImpuestoFinal: " + impuestoTotal)
 
-    setSpan("impuestoR",impuestoTotal);
+    setSpan("impuestoR", impuestoTotal);
 }
 
 /**
@@ -221,10 +221,10 @@ function resetInput() {
 /**
  * actuador XD
  */
-FIR.addEventListener("submit", function(e) {
+FIR.addEventListener("submit", function (e) {
     // Evitar valores vacios
-    e.preventDefault();   
-    
+    e.preventDefault();
+
     var input = document.getElementById("sueldoM").value;
     obtenerSalario(input)
 
@@ -234,7 +234,7 @@ FIR.addEventListener("submit", function(e) {
     var vestimenta = document.getElementById("vestimenta").value;
     var turismoI = document.getElementById("turismoI").value;
     var salud = document.getElementById("salud").value;
-    obtenerGastosDeducibles(vivienda,educacion,alimentacion,vestimenta,turismoI,salud)
+    obtenerGastosDeducibles(vivienda, educacion, alimentacion, vestimenta, turismoI, salud)
 
     calcularImpuesto()
 
