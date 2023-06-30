@@ -47,6 +47,7 @@ function obtenerSalario(input) {
     var sueldoA = numeroDecimal * 12;
     console.log("anual: " + sueldoA);
 
+    setSpan("totalMensual", numeroDecimal);
     setSpan("totalIngresos", sueldoA);
 }
 
@@ -203,6 +204,9 @@ function calcularImpuesto() {
     console.log("ImpuestoFinal: " + impuestoTotal)
 
     setSpan("impuestoR", impuestoTotal);
+
+    var nesSpan = document.getElementById("impuestoR");
+    nesSpan.style.color ="green"
 }
 
 /**
