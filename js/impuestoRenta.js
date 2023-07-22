@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
             result = ((resta - 114288) * 0.05) + 22366;
         }
         console.log("RESULT: " + result)
+
+        const impuesto = document.getElementById("impuestoR");
+        impuesto.textContent = result.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        impuesto.style.color = "green";
         return result
 
     }
@@ -41,13 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const turismoI = parseFloat(document.getElementById("turismoI").value);
         const salud = parseFloat(document.getElementById("salud").value);
 
-        const mensual = document.getElementById("totalMensual");
         const gastos = document.getElementById("totalGastos");
-
         const totalGastos = (vivienda + educacion + alimentacion + vestimenta + turismoI + salud);
 
         if (validarCampos(sueldoM, vivienda, educacion, alimentacion, vestimenta, turismoI, salud)) {
-            mensual.textContent = sueldoM.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             gastos.textContent = totalGastos.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             baseImponible(sueldoM, totalGastos);
         } else {
